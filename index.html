@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio samples — landing page and lead-capture concepts for small business clients.">
+  <title>Portfolio Samples — Landing Page &amp; Lead Capture</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 1rem;
+      line-height: 1.6;
+      background: #F7F6F3;
+      color: #1A1917;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ---- HEADER ---- */
+    .site-header {
+      background: #1A1917;
+      padding: 2.5rem 1.25rem 2rem;
+      text-align: center;
+    }
+
+    .header-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 0.625rem;
+    }
+
+    .site-header h1 {
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.625rem;
+      letter-spacing: -0.02em;
+    }
+
+    .site-header p {
+      font-size: 0.9375rem;
+      color: rgba(255,255,255,0.6);
+      max-width: 440px;
+      margin: 0 auto;
+    }
+
+    /* ---- MAIN ---- */
+    main {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: clamp(2rem, 6vw, 3.5rem) 1.25rem;
+    }
+
+    /* ---- GRID ---- */
+    .samples-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+
+    @media (min-width: 640px) {
+      .samples-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (min-width: 960px) {
+      .samples-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    /* ---- CARD ---- */
+    .sample-card {
+      background: #fff;
+      border: 1px solid #E5E2DC;
+      border-radius: 10px;
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .card-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+
+    .niche-badge {
+      display: inline-block;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 0.25rem 0.625rem;
+      border-radius: 99px;
+      white-space: nowrap;
+    }
+
+    .niche-badge--green  { background: #EAF0E6; color: #3D6B2C; }
+    .niche-badge--lime   { background: #E8F2E5; color: #2D6B1F; }
+    .niche-badge--amber  { background: #FAF0E6; color: #8C3E0D; }
+
+    .concept-pill {
+      display: inline-block;
+      font-size: 0.625rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 0.2rem 0.5rem;
+      background: #F0EDE8;
+      color: #8A8278;
+      border-radius: 99px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .sample-card h2 {
+      font-size: 1.125rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: #1A1917;
+      line-height: 1.25;
+    }
+
+    .sample-card p {
+      font-size: 0.9rem;
+      color: #6B6560;
+      line-height: 1.65;
+      flex: 1;
+    }
+
+    .view-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #1A1917;
+      border-bottom: 2px solid currentColor;
+      padding-bottom: 1px;
+      transition: opacity 0.15s ease;
+      width: fit-content;
+    }
+
+    .view-link:hover { opacity: 0.65; }
+
+    .view-link .arrow { font-style: normal; }
+
+    /* ---- FOOTER ---- */
+    .site-footer {
+      text-align: center;
+      padding: 2rem 1.25rem 3rem;
+      border-top: 1px solid #E5E2DC;
+    }
+
+    .site-footer p {
+      font-size: 0.8125rem;
+      color: #9A9390;
+      line-height: 1.65;
+    }
+
+    .site-footer p + p { margin-top: 0.25rem; }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <p class="header-label">Freelance Portfolio</p>
+    <h1>Portfolio Samples</h1>
+    <p>Landing page and lead-capture concepts built for small business clients.</p>
+  </header>
+
+  <main>
+    <div class="samples-grid">
+
+      <!-- Willow Creek Farmstay -->
+      <div class="sample-card">
+        <div class="card-top">
+          <span class="niche-badge niche-badge--green">Rural Accommodation</span>
+          <span class="concept-pill">Concept</span>
+        </div>
+        <h2>Willow Creek Farmstay</h2>
+        <p>Farm stay inquiry and lead-capture page for rural cabin and agritourism hosts who want to replace scattered bookings across Airbnb, Instagram, and email with one clear page and form.</p>
+        <a href="willow-creek/" class="view-link">
+          View Sample <span class="arrow">&#8594;</span>
+        </a>
+      </div>
+
+      <!-- ClearPath Lawn Care -->
+      <div class="sample-card">
+        <div class="card-top">
+          <span class="niche-badge niche-badge--lime">Lawn Care &amp; Home Services</span>
+          <span class="concept-pill">Concept</span>
+        </div>
+        <h2>ClearPath Lawn Care</h2>
+        <p>Quote request page for local lawn care and home service businesses. Shows how collecting address, yard size, and service type upfront cuts back-and-forth before a job is confirmed.</p>
+        <a href="clearpath/" class="view-link">
+          View Sample <span class="arrow">&#8594;</span>
+        </a>
+      </div>
+
+      <!-- Harvest Table Kitchen -->
+      <div class="sample-card">
+        <div class="card-top">
+          <span class="niche-badge niche-badge--amber">Food Business</span>
+          <span class="concept-pill">Concept</span>
+        </div>
+        <h2>Harvest Table Kitchen</h2>
+        <p>Preorder and catering inquiry page for small food businesses, caterers, and meal prep services. Replaces lost DMs and phone calls with a structured form that captures what the owner needs.</p>
+        <a href="harvest-table/" class="view-link">
+          View Sample <span class="arrow">&#8594;</span>
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>All samples are concept work only. None represent real clients or live businesses.</p>
+    <p>Built by [Your Name] &middot; Landing page and lead-capture specialist</p>
+  </footer>
+
+</body>
+</html>
