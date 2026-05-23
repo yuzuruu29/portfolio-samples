@@ -46,7 +46,7 @@
     });
 
     /* Close when a nav link is clicked */
-    nav.querySelectorAll('a').forEach(function (link) {
+    Array.prototype.forEach.call(nav.querySelectorAll('a'), function (link) {
       link.addEventListener('click', function () {
         closeNav();
       });
@@ -58,7 +58,7 @@
      ============================================================ */
   var accordionItems = document.querySelectorAll('.accordion-item');
 
-  accordionItems.forEach(function (item) {
+  Array.prototype.forEach.call(accordionItems, function (item) {
     var question = item.querySelector('.accordion-question');
     var answer   = item.querySelector('.accordion-answer');
 
@@ -86,6 +86,10 @@
   if (form && thankYou) {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
       form.hidden     = true;
       thankYou.hidden = false;
       thankYou.scrollIntoView({ behavior: 'smooth', block: 'center' });

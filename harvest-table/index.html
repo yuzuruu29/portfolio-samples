@@ -365,7 +365,7 @@
       <div class="container">
         <h3 class="form-heading">Order Inquiry Form</h3>
 
-        <form class="inquiry-form" id="inquiry-form" novalidate>
+        <form class="inquiry-form" id="inquiry-form">
 
           <div class="form-row">
             <div class="form-group">
@@ -394,7 +394,7 @@
               <legend>Order Type <span class="required" aria-hidden="true">*</span></legend>
               <div class="radio-group radio-group--wrap">
                 <label class="radio-label">
-                  <input type="radio" name="order-type" value="weekly-meal">
+                  <input type="radio" name="order-type" value="weekly-meal" required>
                   Weekly Meal
                 </label>
                 <label class="radio-label">
@@ -418,7 +418,7 @@
               <legend>Pickup or Delivery? <span class="required" aria-hidden="true">*</span></legend>
               <div class="radio-group">
                 <label class="radio-label">
-                  <input type="radio" name="fulfillment" value="pickup">
+                  <input type="radio" name="fulfillment" value="pickup" required>
                   Pickup
                 </label>
                 <label class="radio-label">

@@ -199,7 +199,7 @@ h3 {
 }
 
 .site-nav a {
-  font-size: 0.875rem;
+  font-size: 1rem;
   font-weight: 500;
   color: var(--color-text);
   transition: color var(--transition);
@@ -227,11 +227,14 @@ h3 {
 .hamburger {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   gap: 5px;
   background: none;
   border: none;
   cursor: pointer;
-  padding: 0.5rem;
+  width: 44px;
+  height: 44px;
   border-radius: 4px;
 }
 
@@ -753,7 +756,7 @@ h3 {
   gap: 1rem;
   cursor: pointer;
   font-family: var(--font-body);
-  font-size: 0.9375rem;
+  font-size: 1rem;
   font-weight: 600;
   color: var(--color-text);
   text-align: left;
@@ -786,7 +789,7 @@ h3 {
 }
 
 .accordion-answer p {
-  font-size: 0.9375rem;
+  font-size: 1rem;
   color: var(--color-muted);
   line-height: 1.7;
 }
@@ -863,7 +866,7 @@ h3 {
 }
 
 label {
-  font-size: 0.875rem;
+  font-size: 1rem;
   font-weight: 600;
   color: var(--color-text);
 }
@@ -920,7 +923,7 @@ fieldset {
 }
 
 fieldset legend {
-  font-size: 0.875rem;
+  font-size: 1rem;
   font-weight: 600;
   color: var(--color-text);
   margin-bottom: 0.75rem;
@@ -1021,7 +1024,7 @@ fieldset legend {
 
 .form-note {
   margin-top: 0.875rem;
-  font-size: 0.8125rem;
+  font-size: 1rem;
   color: var(--color-muted);
 }
 
@@ -1096,7 +1099,7 @@ fieldset legend {
 }
 
 .footer-nav a {
-  font-size: 0.875rem;
+  font-size: 1rem;
   color: rgba(255, 255, 255, 0.65);
   transition: color var(--transition);
 }
@@ -1106,13 +1109,13 @@ fieldset legend {
 }
 
 .footer-disclaimer {
-  font-size: 0.8125rem;
+  font-size: 1rem;
   font-style: italic;
-  color: rgba(255, 255, 255, 0.45);
+  color: rgba(255, 255, 255, 0.72);
 }
 
 .footer-credit {
-  font-size: 0.8125rem;
+  font-size: 1rem;
   color: rgba(255, 255, 255, 0.45);
 }
 
