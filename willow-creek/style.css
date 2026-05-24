@@ -1044,3 +1044,72 @@ fieldset legend {
     grid-row: 3;
   }
 }
+
+/* ============================================================
+   21. REVEAL ANIMATION SYSTEM (beautiful-grid curtain wipe)
+   ============================================================ */
+
+/* Wrapper: establishes the stacking context and clips everything */
+.reveal-wrap {
+  position: relative;
+  overflow: hidden;
+}
+
+/* The actual photo fills the container absolutely so aspect-ratio works */
+.reveal-wrap img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: scale(1.08);
+}
+
+/* The brand-coloured curtain that sweeps across */
+.reveal-curtain {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background-color: var(--color-cta);
+  transform: translateX(-101%);
+  pointer-events: none;
+}
+
+/* JS adds .is-revealed when element enters viewport */
+.reveal-wrap.is-revealed .reveal-curtain {
+  animation: reveal-curtain-wipe 0.85s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+}
+
+.reveal-wrap.is-revealed img {
+  animation: reveal-img-settle 0.65s 0.42s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+/* JS adds .is-done when curtain animation ends — enables hover */
+.reveal-wrap.is-done img {
+  transform: scale(1.0);
+  transition: transform 0.7s ease;
+}
+
+.reveal-wrap.is-done:hover img {
+  transform: scale(1.06);
+}
+
+@keyframes reveal-curtain-wipe {
+  0%   { transform: translateX(-101%); }
+  50%  { transform: translateX(0%); }
+  100% { transform: translateX(101%); }
+}
+
+@keyframes reveal-img-settle {
+  from { transform: scale(1.08); }
+  to   { transform: scale(1.0); }
+}
+
+/* Respect reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .reveal-wrap img                        { transform: scale(1.0); }
+  .reveal-wrap.is-revealed .reveal-curtain,
+  .reveal-wrap.is-revealed img            { animation: none; }
+  .reveal-curtain                         { display: none; }
+}

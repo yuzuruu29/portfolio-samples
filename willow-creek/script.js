@@ -99,3 +99,59 @@
   }
 
 })();
+
+/* ============================================================
+   REVEAL ANIMATION SYSTEM (beautiful-grid curtain wipe)
+   IntersectionObserver fires each .reveal-wrap when it enters
+   the viewport; stagger is calculated from position in parent.
+   ============================================================ */
+(function () {
+  'use strict';
+
+  var wraps = document.querySelectorAll('.reveal-wrap');
+  if (!wraps.length) return;
+
+  /* Skip animation for users who prefer reduced motion */
+  var prefersReduced = window.matchMedia &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (prefersReduced) {
+    Array.prototype.forEach.call(wraps, function (w) {
+      w.classList.add('is-revealed', 'is-done');
+    });
+    return;
+  }
+
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) return;
+
+      var el = entry.target;
+
+      /* Stagger within the same parent container (e.g. gallery-grid) */
+      var siblings = Array.prototype.slice.call(
+        el.parentElement.querySelectorAll('.reveal-wrap')
+      );
+      /* data-reveal-delay overrides stagger (used on hero for a page-load pause) */
+      var delay = el.dataset.revealDelay !== undefined
+        ? parseInt(el.dataset.revealDelay, 10)
+        : (siblings.indexOf(el) % 4) * 120;
+
+      setTimeout(function () {
+        el.classList.add('is-revealed');
+        var curtain = el.querySelector('.reveal-curtain');
+        if (curtain) {
+          curtain.addEventListener('animationend', function () {
+            el.classList.add('is-done');
+          }, { once: true });
+        }
+      }, delay);
+
+      observer.unobserve(el);
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  Array.prototype.forEach.call(wraps, function (w) {
+    observer.observe(w);
+  });
+}());

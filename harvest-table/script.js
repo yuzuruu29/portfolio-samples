@@ -97,3 +97,53 @@
   }
 
 })();
+
+/* ============================================================
+   REVEAL ANIMATION SYSTEM (beautiful-grid curtain wipe)
+   ============================================================ */
+(function () {
+  'use strict';
+
+  var wraps = document.querySelectorAll('.reveal-wrap');
+  if (!wraps.length) return;
+
+  var prefersReduced = window.matchMedia &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (prefersReduced) {
+    Array.prototype.forEach.call(wraps, function (w) {
+      w.classList.add('is-revealed', 'is-done');
+    });
+    return;
+  }
+
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) return;
+
+      var el = entry.target;
+      var siblings = Array.prototype.slice.call(
+        el.parentElement.querySelectorAll('.reveal-wrap')
+      );
+      var delay = el.dataset.revealDelay !== undefined
+        ? parseInt(el.dataset.revealDelay, 10)
+        : (siblings.indexOf(el) % 4) * 120;
+
+      setTimeout(function () {
+        el.classList.add('is-revealed');
+        var curtain = el.querySelector('.reveal-curtain');
+        if (curtain) {
+          curtain.addEventListener('animationend', function () {
+            el.classList.add('is-done');
+          }, { once: true });
+        }
+      }, delay);
+
+      observer.unobserve(el);
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  Array.prototype.forEach.call(wraps, function (w) {
+    observer.observe(w);
+  });
+}());
